@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthTech – Smart Symptom Checker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>HealthTech – Smart Symptom Checker</h1>
+    <p class="tagline">Educational tool only. Not a diagnosis. If in doubt, seek medical care.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Describe your symptoms</h2>
+      <div class="input-row">
+        <input id="symptom-input" type="text" placeholder="Type a symptom and press Enter (e.g., fever, cough)" />
+        <button id="add-symptom-btn" class="btn">Add</button>
+      </div>
+
+      <div id="suggestions" class="suggestions"></div>
+
+      <div id="selected-symptoms" class="chips" aria-live="polite"></div>
+
+      <div class="row">
+        <label class="inline">
+          <span>Age</span>
+          <input id="age" type="number" min="0" max="120" placeholder="e.g., 28" />
+        </label>
+        <label class="inline">
+          <span>Duration (days)</span>
+          <input id="duration" type="number" min="0" max="365" placeholder="e.g., 3" />
+        </label>
+      </div>
+
+      <div class="row">
+        <label class="inline">
+          <span>Temperature (°C)</span>
+          <input id="temp" type="number" step="0.1" placeholder="optional e.g., 38.3" />
+        </label>
+        <label class="inline">
+          <span>Heart Rate (bpm)</span>
+          <input id="hr" type="number" step="1" placeholder="optional e.g., 102" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="analyze-btn" class="btn primary">Check Symptoms</button>
+        <button id="reset-btn" class="btn ghost">Reset</button>
+      </div>
+    </section>
+
+    <section id="result" class="card hidden" aria-live="polite">
+      <h2>Assessment</h2>
+      <div id="triage"></div>
+      <div id="likely-conditions"></div>
+      <div id="advice"></div>
+      <details class="kb">
+        <summary>How this works (tap to view)</summary>
+        <p>
+          This checker uses a simple rule/score system comparing your selected symptoms to a small knowledge base of common conditions.
+          It flags “red-flag” symptoms that may need urgent attention. This is NOT medical advice or a diagnosis.
+        </p>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Previous Checks</h2>
+      <div id="history"></div>
+      <button id="clear-history" class="btn ghost small">Clear History</button>
+    </section>
+
+    <section class="disclaimer">
+      <strong>Disclaimer:</strong> This tool is for educational purposes only and is <em>not</em> a substitute for professional medical advice, diagnosis, or treatment. If you have severe or worsening symptoms, chest pain, difficulty breathing, confusion, blue lips/face, severe dehydration, or any medical emergency—seek emergency care immediately.
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>© 2025 HealthTech Demo</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
